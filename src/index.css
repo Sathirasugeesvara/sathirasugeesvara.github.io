@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-base text-ink font-body antialiased;
+}
+
+::selection {
+  background: rgba(53, 199, 193, 0.3);
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid #35C7C1;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.section {
+  @apply max-w-content mx-auto px-6 md:px-10;
+}
+
+.heading-eyebrow {
+  @apply text-accent font-display text-sm tracking-wide;
+}
