@@ -41,6 +41,16 @@ const projects = [
     live: 'https://workly-home.vercel.app/',
     github: 'https://github.com/Sathirasugeesvara/Workly',
   },
+  {
+    title: 'Pandora',
+    category: 'Web Application',
+    description:
+      'A university community platform designed to connect students through games, events, invitations, leaderboards, and shared memories.',
+    tags: ['React', 'Google Sheets API', 'JavaScript' ],
+    image: '/images/Project5.png',
+    live: 'https://pandora-welcome-app.vercel.app/',
+    github: 'https://github.com/Sathirasugeesvara/pandora-welcome-app.git',
+  },
   
 ]
 
