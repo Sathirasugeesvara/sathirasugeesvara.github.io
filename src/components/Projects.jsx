@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import { HiOutlineExternalLink, HiChevronDown, HiChevronUp } from 'react-icons/hi'
 import { FaGithub } from 'react-icons/fa'
 import projects from '../data/projects'
+import Reveal from './Reveal'
 
 const INITIAL_COUNT = 4
 
@@ -12,31 +14,37 @@ export default function Projects() {
   return (
     <section id="projects" className="py-20 md:py-28">
       <div className="section">
-        <div className="flex items-center gap-3 mb-10">
-          <p className="font-display text-xs tracking-widest text-ink uppercase">Projects</p>
-          <span className="h-px w-10 bg-accent/50" />
-        </div>
-        <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
-          <div>
-            <h2 className="font-display text-3xl md:text-4xl font-semibold text-ink">Featured projects</h2>
-            <p className="mt-2 text-ink-muted">A few things I've built, end to end.</p>
+        <Reveal>
+          <div className="flex items-center gap-3 mb-10">
+            <p className="font-display text-xs tracking-widest text-ink uppercase">Projects</p>
+            <span className="h-px w-10 bg-accent/50" />
           </div>
-          {projects.length > INITIAL_COUNT && (
-            <button
-              onClick={() => setExpanded((v) => !v)}
-              className="font-display text-sm text-accent hover:text-accent-bright flex items-center gap-1.5"
-            >
-              {expanded ? 'Show fewer' : 'View all projects'}
-              {expanded ? <HiChevronUp /> : <HiChevronDown />}
-            </button>
-          )}
-        </div>
+          <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
+            <div>
+              <h2 className="font-display text-3xl md:text-4xl font-semibold text-ink">Featured projects</h2>
+              <p className="mt-2 text-ink-muted">A few things I've built, end to end.</p>
+            </div>
+            {projects.length > INITIAL_COUNT && (
+              <button
+                onClick={() => setExpanded((v) => !v)}
+                className="font-display text-sm text-accent hover:text-accent-bright flex items-center gap-1.5 active:scale-95 transition-transform"
+              >
+                {expanded ? 'Show fewer' : 'View all projects'}
+                {expanded ? <HiChevronUp /> : <HiChevronDown />}
+              </button>
+            )}
+          </div>
+        </Reveal>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {visible.map((p) => (
-            <article
+          {visible.map((p, i) => (
+            <motion.article
               key={p.title}
-              className="group rounded-2xl border border-base-border bg-base-panel overflow-hidden flex flex-col hover:border-accent/40 transition-colors"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: (i % INITIAL_COUNT) * 0.08, ease: 'easeOut' }}
+              className="group rounded-2xl border border-base-border bg-base-panel overflow-hidden flex flex-col hover:border-accent/40 hover:-translate-y-1 transition-all duration-300"
             >
               <div className="bg-base-raised border-b border-base-border">
                 <div className="flex items-center gap-1.5 px-4 py-3">
@@ -77,7 +85,7 @@ export default function Projects() {
                   </a>
                 </div>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>

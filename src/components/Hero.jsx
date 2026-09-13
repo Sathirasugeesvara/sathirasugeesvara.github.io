@@ -47,10 +47,10 @@ export default function Hero() {
           <p className="mt-3 max-w-md text-ink-muted leading-relaxed">{profile.tagline}</p>
 
           <div className="mt-9 flex flex-wrap gap-4">
-            <a href="#projects" className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-display text-sm font-medium text-base hover:bg-accent-bright transition-colors">
+            <a href="#projects" className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-display text-sm font-medium text-base hover:bg-accent-bright transition-colors active:scale-95">
               View my work <HiArrowRight />
             </a>
-            <a href={profile.resumeUrl} download className="inline-flex items-center gap-2 rounded-full border border-accent/50 px-6 py-3 font-display text-sm text-ink hover:bg-accent/10 transition-colors">
+            <a href={profile.resumeUrl} download className="inline-flex items-center gap-2 rounded-full border border-accent/50 px-6 py-3 font-display text-sm text-ink hover:bg-accent/10 transition-colors active:scale-95">
               <HiOutlineDownload />
               Download resume
             </a>
