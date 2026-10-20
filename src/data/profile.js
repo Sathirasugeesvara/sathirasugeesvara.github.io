@@ -16,8 +16,8 @@ const profile = {
   email: 'sathirasugeesvara@gmail.com',
   resumeUrl: '/sathira_cv.pdf',
   photo: '/images/Photo1.jpg',
-  heroBanner: '/images/hero-banner.jpg',
-  heroBannerMobile: '/images/hero-banner-mobile.jpg',
+  heroBanner: '/images/hero-banner.webp',
+  heroBannerMobile: '/images/hero-banner-mobile.webp',
   socials: {
     github: 'https://github.com/Sathirasugeesvara',
     linkedin: 'https://www.linkedin.com/in/sathirasugeesvara',
@@ -32,7 +32,7 @@ const profile = {
     { value: 'Ongoing', label: 'Learning' },
     { value: 'Always', label: 'Curious' },
   ],
-  aboutPhoto: '/images/about-photo.jpg',
+  aboutPhoto: '/images/about-photo.webp',
   quote: 'A better version of myself, with every build.',
 }
 

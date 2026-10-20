@@ -1,22 +1,20 @@
 import { motion } from 'framer-motion'
 import { HiOutlineDownload, HiOutlineLocationMarker, HiArrowRight } from 'react-icons/hi'
 import profile from '../data/profile'
+import ImageLoader from './ImageLoader'
 
 export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen overflow-hidden bg-base">
       <div className="absolute inset-0">
-        <img
-          src={profile.heroBannerMobile}
-          alt=""
-          className="md:hidden h-full w-full object-cover object-top opacity-90"
-          onError={(e) => { e.currentTarget.style.display = 'none' }}
-        />
-        <img
+        <ImageLoader
           src={profile.heroBanner}
+          sources={[{ srcSet: profile.heroBannerMobile, media: '(max-width: 767px)' }]}
           alt=""
-          className="hidden md:block h-full w-full object-cover object-[70%_center] opacity-90"
-          onError={(e) => { e.currentTarget.style.display = 'none' }}
+          loading="eager"
+          fetchPriority="high"
+          containerClassName="h-full w-full"
+          className="h-full w-full object-cover object-top opacity-90 md:object-[70%_center]"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-base via-base/85 to-base/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-base via-transparent to-base/40" />

@@ -1,6 +1,7 @@
 import profile from '../data/profile'
 import Reveal from './Reveal'
 import CountUp from './CountUp'
+import ImageLoader from './ImageLoader'
 
 export default function About() {
   return (
@@ -15,13 +16,12 @@ export default function About() {
 
         <Reveal delay={0.1}>
           <div className="grid lg:grid-cols-[220px_1fr_280px] gap-8 items-stretch">
-            <div className="rounded-2xl overflow-hidden border border-base-border">
-              <img
-                src={profile.aboutPhoto}
-                alt={profile.name}
-                className="w-full h-full object-cover"
-              />
-            </div>
+            <ImageLoader
+              src={profile.aboutPhoto}
+              alt={profile.name}
+              containerClassName="min-h-[220px] rounded-2xl border border-base-border lg:min-h-0"
+              className="h-full min-h-[220px] w-full object-cover lg:min-h-0"
+            />
 
             <div className="flex flex-col justify-center">
               <h2 className="font-display text-3xl md:text-4xl font-semibold text-ink">

@@ -36,3 +36,24 @@ body {
 .heading-eyebrow {
   @apply text-accent font-display text-sm tracking-wide;
 }
+
+.image-loader {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid rgba(53, 199, 193, 0.25);
+  border-top-color: #35c7c1;
+  border-radius: 9999px;
+  animation: image-loader-spin 0.8s linear infinite;
+}
+
+@keyframes image-loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image-loader {
+    animation-duration: 2s;
+  }
+}

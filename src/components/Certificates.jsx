@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { HiOutlineExternalLink, HiChevronDown, HiChevronUp } from 'react-icons/hi'
 import certificates from '../data/certificates'
 import Reveal from './Reveal'
+import ImageLoader from './ImageLoader'
 
 const INITIAL_COUNT = 4
 
@@ -33,7 +34,12 @@ export default function Certificates() {
               transition={{ duration: 0.4, delay: (i % INITIAL_COUNT) * 0.08, ease: 'easeOut' }}
               className="group rounded-2xl border border-base-border bg-base-panel overflow-hidden hover:border-accent/40 hover:-translate-y-1 transition-all duration-300"
             >
-              <img src={c.image} alt={c.title} className="h-32 w-full object-cover" />
+              <ImageLoader
+                src={c.image}
+                alt={c.title}
+                containerClassName="h-32"
+                className="h-full w-full object-cover"
+              />
               <div className="p-4">
                 <h3 className="font-display text-sm font-medium text-ink leading-snug">{c.title}</h3>
                 <p className="mt-1 text-xs text-ink-muted">{c.issuer}</p>
