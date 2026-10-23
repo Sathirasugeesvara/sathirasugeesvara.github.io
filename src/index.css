@@ -52,6 +52,105 @@ body {
   }
 }
 
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: none;
+  background:
+    radial-gradient(ellipse at 50% 48%, rgba(53, 199, 193, 0.07), transparent 34%),
+    #070b10;
+  color: #e8edf2;
+  transition: opacity 450ms ease, visibility 450ms ease;
+}
+
+.page-loader--exiting {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.page-loader__rings {
+  width: 112px;
+  height: 112px;
+  filter: drop-shadow(0 0 9px rgba(53, 199, 193, 0.18));
+}
+
+.page-loader__rings svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.page-loader__ring {
+  transform-origin: center;
+  stroke-linecap: round;
+}
+
+.page-loader__ring--outer {
+  stroke: #35c7c1;
+  stroke-width: 2.4;
+  stroke-dasharray: 112 177;
+  animation: page-loader-ring-spin 3.4s linear infinite;
+}
+
+.page-loader__ring--middle {
+  stroke: #5fe1db;
+  stroke-width: 2.7;
+  stroke-dasharray: 92 122;
+  animation: page-loader-ring-spin-reverse 2.8s linear infinite;
+}
+
+.page-loader__ring--inner {
+  stroke: #8b98a5;
+  stroke-width: 3;
+  stroke-dasharray: 66 72;
+  animation: page-loader-ring-spin 2.2s linear infinite;
+}
+
+.page-loader__label {
+  margin: 23px 0 0;
+  color: #e8edf2;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-indent: 0.32em;
+}
+
+@keyframes page-loader-ring-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes page-loader-ring-spin-reverse {
+  to { transform: rotate(-360deg); }
+}
+
+@media (max-width: 480px) {
+  .page-loader__rings {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-loader {
+    animation: none;
+    transition-duration: 0.001ms;
+  }
+
+  .page-loader__ring {
+    animation: none;
+  }
+
+}
+
 @media (prefers-reduced-motion: reduce) {
   .image-loader {
     animation-duration: 2s;

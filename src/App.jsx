@@ -8,10 +8,12 @@ import Journey from './components/Journey'
 import Certificates from './components/Certificates'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import PageLoader from './components/PageLoader'
 
 export default function App() {
   return (
     <div className="min-h-screen bg-base">
+      <PageLoader />
       <Navbar />
       <SectionIndex />
       <main>
