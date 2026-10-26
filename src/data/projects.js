@@ -4,9 +4,18 @@ const projects = [
     category: 'Web Application',
     description:
       'A film competition website developed for CINERO’26, organized by J’Pura Voice at the University of Sri Jayewardenepura, featuring competition details, event information, participant registration, film submissions, and other essential resources.',
-    tags: ['React', 'Google Sheets API','TypeScript', 'Custom Domain'],
+    tags: [
+      'React',
+      'TypeScript',
+      'Vite',
+      'Web3Forms',
+      'SweetAlert2',
+      'Google Apps Script',
+      'Vercel',
+      'Custom Domain',
+    ],
     image: '/images/Project6.webp',
-    live: 'https://cineru26.live',
+    live: 'https://cinero26.live',
     github: 'https://github.com/Sathirasugeesvara/CINERO.git',
   },
   {

@@ -19,8 +19,8 @@ export default function About() {
             <ImageLoader
               src={profile.aboutPhoto}
               alt={profile.name}
-              containerClassName="min-h-[220px] rounded-2xl border border-base-border lg:min-h-0"
-              className="h-full min-h-[220px] w-full object-cover lg:min-h-0"
+              containerClassName="w-full max-w-sm mx-auto aspect-square rounded-2xl border border-base-border lg:max-w-none lg:aspect-auto lg:h-full lg:min-h-0"
+              className="h-full w-full object-cover"
             />
 
             <div className="flex flex-col justify-center">
