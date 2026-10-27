@@ -34,6 +34,7 @@ export default function Footer() {
         <div className="text-sm text-ink-faint">
           <p>© {year} {profile.name}</p>
           <p>All rights reserved.</p>
+          <p>Developed by {profile.name}</p>
         </div>
       </div>
     </footer>
