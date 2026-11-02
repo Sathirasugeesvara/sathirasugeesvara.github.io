@@ -5,10 +5,10 @@ const profile = {
   lastName: 'Sugeesvara',
   initials: 'SS',
   eyebrow: ['Learn', 'Build', 'Improve'],
-  role: 'Computer Science & Mathematics Student',
+  role: 'Computer Science & Mathematics Student | Co-Founder of Kubi Forge',
   subRole: 'Full-Stack Developer (MERN)',
   tagline:
-    'Passionate about building modern web applications and turning ideas into real products.',
+    'Passionate about building modern web applications and helping ideas grow into real products and communities.',
   bioTagline:
     "I build web applications end to end — from data models to interfaces — and I like the parts most people skip: fixing the bug, tightening the layout, shipping the thing.",
   location: 'Matugama, Sri Lanka',

@@ -16,7 +16,7 @@ const projects = [
     ],
     image: '/images/Project6.webp',
     live: 'https://cinero26.live',
-    github: 'https://github.com/Sathirasugeesvara/CINERO.git',
+    github: 'https://github.com/KubiForge/Cinero-26.git',
   },
   {
     title: 'Xaro Clothing Store',

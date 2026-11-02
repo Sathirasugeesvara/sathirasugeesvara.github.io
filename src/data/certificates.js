@@ -1,5 +1,11 @@
 const certificates = [
   {
+    title: 'Linux Unhatched',
+    issuer: 'Cisco Networking Academy',
+    image: '/images/certificates/Linux_Unhatched.png',
+    link: 'https://www.netacad.com/recognitions/verify/e3373617-bad9-40ef-bd41-ad0f4a1eeff4',
+  },
+  {
     title: 'Operating Systems Basics',
     issuer: 'Cisco Networking Academy',
     image: '/images/certificates/OSBasics1.webp',
