@@ -5,7 +5,6 @@ import Projects from './components/Projects'
 import About from './components/About'
 import Skills from './components/Skills'
 import Journey from './components/Journey'
-import Certificates from './components/Certificates'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import PageLoader from './components/PageLoader'
@@ -16,13 +15,12 @@ export default function App() {
       <PageLoader />
       <Navbar />
       <SectionIndex />
-      <main>
+      <main className="pb-28 md:pb-0">
         <Hero />
         <Projects />
         <About />
         <Skills />
         <Journey />
-        <Certificates />
         <Contact />
       </main>
       <Footer />
