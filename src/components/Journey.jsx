@@ -65,7 +65,7 @@ const clubProjectExperiences = [
   },
   {
     title: 'CINERO’26',
-    role: 'IT Crew Member',
+    role: 'IT Crew Head',
     organization: "J'Pura Voice",
     logo: '/images/Society logos/Japuravoivelogo.png',
     description:
@@ -139,18 +139,16 @@ export default function Journey() {
                     onClick={() => setActiveTab(id)}
                     title={label}
                     aria-label={label}
-                    className={`group inline-flex shrink-0 items-center justify-center gap-2.5 rounded-xl border py-2.5 px-2 sm:px-4 sm:py-2 text-sm font-medium transition-all duration-200 ${
-                      isActive
+                    className={`group inline-flex shrink-0 items-center justify-center gap-2.5 rounded-xl border py-2.5 px-2 sm:px-4 sm:py-2 text-sm font-medium transition-all duration-200 ${isActive
                         ? 'border-accent bg-accent/15 text-accent shadow-[0_0_15px_rgba(53,199,193,0.18)]'
                         : 'border-base-border bg-base-panel text-ink hover:border-accent/40 hover:bg-base-raised'
-                    }`}
+                      }`}
                   >
                     <span
-                      className={`flex h-8 w-8 sm:h-7 sm:w-7 shrink-0 items-center justify-center rounded-lg transition-all duration-200 ${
-                        isActive
+                      className={`flex h-8 w-8 sm:h-7 sm:w-7 shrink-0 items-center justify-center rounded-lg transition-all duration-200 ${isActive
                           ? 'bg-accent text-[#070B10] shadow-[0_0_10px_rgba(53,199,193,0.3)]'
                           : 'bg-[#142f34] border border-accent/25 text-accent group-hover:bg-accent group-hover:text-[#070B10]'
-                      }`}
+                        }`}
                     >
                       <Icon className="text-[17px] sm:text-[14px] text-inherit" />
                     </span>
@@ -217,9 +215,8 @@ export default function Journey() {
                 <div className="hidden flex-col justify-around py-4 h-full lg:flex select-none">
                   {timeline.map((item, index) => (
                     <div key={`${item.year}-${item.title}`} className="flex flex-1 items-center justify-center">
-                      <span className={`font-display text-xs tracking-wider transition-colors ${
-                        item.type === 'Experience' ? 'font-bold text-accent text-sm' : 'text-ink-faint/60'
-                      }`}>
+                      <span className={`font-display text-xs tracking-wider transition-colors ${item.type === 'Experience' ? 'font-bold text-accent text-sm' : 'text-ink-faint/60'
+                        }`}>
                         {String(index + 1).padStart(2, '0')}
                       </span>
                     </div>

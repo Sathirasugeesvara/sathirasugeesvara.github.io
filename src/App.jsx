@@ -8,13 +8,13 @@ import Journey from './components/Journey'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import PageLoader from './components/PageLoader'
-import LiquidSmokeCursor from './components/LiquidSmokeCursor'
+import CursorGhost from './components/CursorGhost'
 
 export default function App() {
   return (
     <div className="min-h-screen bg-base">
       <PageLoader />
-      <LiquidSmokeCursor />
+      <CursorGhost />
       <Navbar />
       <SectionIndex />
       <main className="pb-28 md:pb-0">
