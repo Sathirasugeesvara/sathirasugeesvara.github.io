@@ -24,10 +24,17 @@ const tabs = [
   { id: 'leadership', label: 'Leadership', icon: FaUserFriends },
 ]
 
+const kubiForgeCoFounders = [
+  { id: '01', name: 'Sathira Sugeesvara', role: 'Co-Founder' },
+  { id: '02', name: 'Himansith Wickramasinghe', role: 'Co-Founder' },
+  { id: '03', name: 'Kusal Ranasinghe', role: 'Co-Founder' },
+  { id: '04', name: 'Chathupa Chamika', role: 'Co-Founder' },
+]
+
 const starhubHighlights = [
-  'Co-founder of Kubi Forge, helping shape ideas into practical digital products and community-driven initiatives.',
-  'Supporting startup-minded collaboration, product incubation and student-led innovation.',
-  'Helping turn concepts into real digital experiences with an execution-focused mindset.',
+  'Product Incubation & Execution: Shaping creative ideas into practical, scalable digital web applications and platforms.',
+  'Startup-Minded Collaboration: Fostering fast prototyping, agile development, and student-driven innovation.',
+  'Execution-Focused Mindset: Helping turn concepts into real-world products through experimentation and collective momentum.',
 ]
 
 const leadershipOrganizations = [
@@ -283,26 +290,65 @@ export default function Journey() {
           {activeTab === 'starhub' && (
             <div className="rounded-2xl border border-base-border bg-base-panel p-5 md:p-8">
               <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-                <div className="space-y-5">
+                <div className="space-y-6">
                   <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs uppercase tracking-wider text-accent font-display">
                     <FaRocket />
                     StarHub
                   </div>
 
                   <div>
-                    <h3 className="font-display text-2xl md:text-3xl font-semibold text-ink">Co-founder of Kubi Forge</h3>
+                    <h3 className="font-display text-2xl md:text-3xl font-semibold text-ink">
+                      Co-founder of Kubi Forge
+                    </h3>
                     <p className="mt-3 text-sm leading-relaxed text-ink-muted">
-                      I am a co-founder of Kubi Forge, where I help build a startup-minded community focused on collaboration, prototype thinking and practical digital product building.
+                      Kubi Forge is a startup-focused incubation platform and builder community co-founded to turn ambitious concepts into real digital products, web solutions, and student-driven innovation.
                     </p>
                   </div>
 
-                  <div className="space-y-3">
+                  {/* Co-Founders Grid */}
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="font-display text-xs tracking-wider uppercase text-ink-faint">
+                        Co-Founders
+                      </span>
+                      <span className="text-[11px] font-medium text-accent">4 Co-Founders</span>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      {kubiForgeCoFounders.map((founder) => (
+                        <div
+                          key={founder.id}
+                          className="group flex items-center gap-3 rounded-xl border border-base-border bg-base-raised p-3 transition-all duration-200 hover:border-accent/40 hover:-translate-y-0.5"
+                        >
+                          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent/10 font-mono text-xs font-bold text-accent transition-colors group-hover:bg-accent group-hover:text-[#070B10]">
+                            {founder.id}
+                          </span>
+                          <div className="min-w-0">
+                            <h5 className="truncate font-display text-sm font-semibold text-ink group-hover:text-accent transition-colors">
+                              {founder.name}
+                            </h5>
+                            <span className="text-[11px] font-medium uppercase tracking-wider text-ink-faint">
+                              {founder.role}
+                            </span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Core Highlights */}
+                  <div className="space-y-2.5">
+                    <span className="block font-display text-xs tracking-wider uppercase text-ink-faint">
+                      Core Focus Areas
+                    </span>
                     {starhubHighlights.map((item) => (
-                      <div key={item} className="flex gap-3 rounded-xl border border-base-border bg-base-raised p-4 text-ink-muted text-sm">
+                      <div
+                        key={item}
+                        className="flex gap-3 rounded-xl border border-base-border bg-base-raised p-3.5 text-ink-muted text-sm"
+                      >
                         <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent">
                           <HiArrowRight className="text-xs" />
                         </span>
-                        <span className="leading-relaxed">{item}</span>
+                        <span className="leading-relaxed text-xs sm:text-sm">{item}</span>
                       </div>
                     ))}
                   </div>
@@ -311,24 +357,42 @@ export default function Journey() {
                     href="https://kubiforge.vercel.app"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl border border-accent/40 bg-accent/10 px-5 py-2.5 font-display text-sm text-accent transition-all hover:bg-accent hover:text-base font-medium"
+                    className="inline-flex items-center gap-2 rounded-xl border border-accent/40 bg-accent/10 px-5 py-2.5 font-display text-sm text-accent transition-all hover:bg-accent hover:text-[#070B10] font-medium"
                   >
                     Visit Kubi Forge <HiOutlineExternalLink />
                   </a>
                 </div>
 
-                <div className="overflow-hidden rounded-xl border border-base-border bg-base-raised flex flex-col">
-                  <ImageLoader
-                    src="/images/Project6.webp"
-                    alt="Kubi Forge"
-                    containerClassName="h-64"
-                    className="h-full w-full object-cover"
-                  />
-                  <div className="p-5">
-                    <h4 className="font-display text-lg font-semibold text-ink">Kubi Forge</h4>
-                    <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-                      A community and startup-focused platform where ideas evolve through experimentation, learning and collective momentum.
-                    </p>
+                <div className="overflow-hidden rounded-xl border border-base-border bg-base-raised flex flex-col justify-between">
+                  <div>
+                    <ImageLoader
+                      src="/images/kubi-forge-showcase.webp"
+                      alt="Kubi Forge Startup Hub Showcase"
+                      containerClassName="h-64 sm:h-72"
+                      className="h-full w-full object-cover"
+                    />
+                    <div className="p-5">
+                      <div className="flex items-center justify-between gap-2">
+                        <h4 className="font-display text-lg font-semibold text-ink">Kubi Forge</h4>
+                        <span className="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-0.5 font-display text-[11px] text-accent font-medium">
+                          Startup Hub
+                        </span>
+                      </div>
+                      <p className="mt-2.5 text-sm leading-relaxed text-ink-muted">
+                        A community and startup-focused platform where ideas evolve through experimentation, learning and collective momentum.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="px-5 pb-5 pt-2 border-t border-base-border/60 flex flex-wrap gap-1.5">
+                    {['Product Incubation', 'Startup Collective', 'Prototyping', 'Student Tech'].map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-md border border-base-border bg-base-panel px-2.5 py-1 text-[11px] text-ink-faint font-medium"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>
