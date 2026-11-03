@@ -4,7 +4,6 @@ import { FaCertificate, FaRocket, FaUserFriends } from 'react-icons/fa'
 import {
   HiAcademicCap,
   HiArrowRight,
-  HiBadgeCheck,
   HiBriefcase,
   HiChevronDown,
   HiChevronUp,
@@ -54,24 +53,54 @@ const leadershipOrganizations = [
   },
 ]
 
-const leadershipExperiencePoints = [
+const clubProjectExperiences = [
   {
-    title: 'Logistics planning',
-    description: 'Managing event requirements, schedules, and coordination to ensure smooth execution.',
+    title: 'IEEEXTREME 20.0',
+    role: 'Logistics Head',
+    organization: 'IEEE Student Branch',
+    logo: '/images/Society logos/IEEElogo.png',
+    description:
+      'Spearheaded overall logistics operations for the 24-hour global competitive programming hackathon at USJ, directing venue readiness, lab setups, hardware power allocation, and team scheduling.',
+    skills: ['Logistics Management', 'Team Leadership', 'Hackathon Operations'],
   },
   {
-    title: 'Event preparation',
-    description: 'Supporting setup, readiness checks, and on-ground preparation before activities begin.',
+    title: 'CINERO’26',
+    role: 'IT Crew Member',
+    organization: "J'Pura Voice",
+    logo: '/images/Society logos/Japuravoivelogo.png',
+    description:
+      'Engineered the official competition web platform, digital entry forms, and media workflow systems, providing reliable live tech support throughout the national short film competition.',
+    skills: ['Web Platform', 'IT Support', 'Digital Operations'],
   },
   {
-    title: 'Resource management',
-    description: 'Coordinating materials, supplies, and essentials to keep operations efficient and organized.',
+    title: 'CAREER Gateway 1.0',
+    role: 'Marketing Team Member',
+    organization: 'IEEE Student Branch',
+    logo: '/images/Society logos/IEEElogo.png',
+    description:
+      'Drove marketing and promotional outreach for the flagship career development event, coordinating cross-platform content campaigns, student communications, and registration flow.',
+    skills: ['Campaign Marketing', 'Outreach', 'Content Strategy'],
   },
   {
-    title: 'Team coordination',
-    description: 'Collaborating closely with peers and organizers to align responsibilities and maintain clear communication.',
+    title: "J'Pura Xtreme 3.0",
+    role: 'Logistics Team Member',
+    organization: 'IEEE Student Branch',
+    logo: '/images/Society logos/IEEElogo.png',
+    description:
+      'Managed on-ground logistics workflows, inventory prep, participant coordination, and event-day operational assistance for the intra-university coding contest.',
+    skills: ['Event Logistics', 'Resource Coordination', 'On-Ground Support'],
+  },
+  {
+    title: 'ARTIMIA 2.0',
+    role: 'Logistics Team Member',
+    organization: 'IEEE Student Branch',
+    logo: '/images/Society logos/IEEElogo.png',
+    description:
+      'Coordinated stage, backstage, and guest area logistical requirements, handling supplies, material distribution, and operational preparedness across the showcase.',
+    skills: ['Operational Logistics', 'Team Coordination', 'Stage Support'],
   },
 ]
+
 
 export default function Journey() {
   const [activeTab, setActiveTab] = useState('journey')
@@ -98,8 +127,8 @@ export default function Journey() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            <div className="flex min-w-max items-center gap-3">
+          <div className="w-full">
+            <div className="grid grid-cols-4 gap-2 sm:flex sm:min-w-max sm:items-center sm:gap-3">
               {tabs.map(({ id, label, icon: Icon }) => {
                 const isActive = activeTab === id
 
@@ -108,22 +137,24 @@ export default function Journey() {
                     key={id}
                     type="button"
                     onClick={() => setActiveTab(id)}
-                    className={`group inline-flex shrink-0 items-center justify-center gap-2.5 rounded-xl border px-4 py-2 text-sm font-medium transition-all duration-200 ${
+                    title={label}
+                    aria-label={label}
+                    className={`group inline-flex shrink-0 items-center justify-center gap-2.5 rounded-xl border py-2.5 px-2 sm:px-4 sm:py-2 text-sm font-medium transition-all duration-200 ${
                       isActive
-                        ? 'border-accent bg-accent/15 text-accent shadow-[0_0_15px_rgba(53,199,193,0.15)]'
-                        : 'border-base-border bg-base-panel text-ink hover:border-accent/50 hover:bg-base-raised'
+                        ? 'border-accent bg-accent/15 text-accent shadow-[0_0_15px_rgba(53,199,193,0.18)]'
+                        : 'border-base-border bg-base-panel text-ink hover:border-accent/40 hover:bg-base-raised'
                     }`}
                   >
                     <span
-                      className={`flex h-7 w-7 items-center justify-center rounded-lg transition-colors ${
+                      className={`flex h-8 w-8 sm:h-7 sm:w-7 shrink-0 items-center justify-center rounded-lg transition-all duration-200 ${
                         isActive
-                          ? 'bg-accent text-base'
-                          : 'bg-accent/15 text-accent group-hover:bg-accent group-hover:text-base'
+                          ? 'bg-accent text-[#070B10] shadow-[0_0_10px_rgba(53,199,193,0.3)]'
+                          : 'bg-[#142f34] border border-accent/25 text-accent group-hover:bg-accent group-hover:text-[#070B10]'
                       }`}
                     >
-                      <Icon className="text-sm" />
+                      <Icon className="text-[17px] sm:text-[14px] text-inherit" />
                     </span>
-                    <span className={isActive ? 'font-semibold text-accent' : 'text-ink group-hover:text-ink'}>
+                    <span className={`hidden sm:inline ${isActive ? 'font-semibold text-accent' : 'text-ink group-hover:text-ink'}`}>
                       {label}
                     </span>
                   </button>
@@ -139,7 +170,7 @@ export default function Journey() {
               <div className="relative lg:grid lg:grid-cols-[minmax(0,1fr)_44px] lg:gap-6 items-center">
                 <div className="relative">
                   {/* Vertical connecting line */}
-                  <div className="absolute left-[23px] top-6 bottom-6 hidden w-px bg-base-border lg:block" />
+                  <div className="absolute left-[20px] md:left-[24px] -translate-x-1/2 top-5 bottom-5 w-px bg-base-border" />
 
                   <div className="space-y-4 md:space-y-5">
                     {timeline.map((item, index) => {
@@ -343,51 +374,78 @@ export default function Journey() {
 
                     {/* Round logo */}
                     <div className="relative z-10 flex items-center">
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-accent/40 bg-white p-1 shadow-sm transition-all duration-300 group-hover:scale-105 group-hover:border-accent overflow-hidden">
-                        <img src={logo} alt={organization} className="h-full w-full rounded-full object-contain" />
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-base-panel shadow-md transition-all duration-300 group-hover:scale-105 group-hover:border-accent/60 overflow-hidden">
+                        <img src={logo} alt={organization} className="h-full w-full object-cover" />
                       </div>
                     </div>
 
-                    {/* Title & institution (blue) */}
+                    {/* Title & institution (blue club name) */}
                     <div className="relative z-10 min-w-0 flex-1 sm:mt-3.5">
-                      <h4 className="font-display text-sm sm:text-base font-bold text-accent leading-tight">{organization}</h4>
-                      <p className="mt-1 text-xs text-accent/80 leading-tight">{institution}</p>
+                      <h4 className="font-display text-sm sm:text-[15px] font-bold text-accent leading-tight">{organization}</h4>
+                      <p className="mt-1 text-xs text-ink-muted leading-tight">{institution}</p>
                     </div>
                   </motion.article>
                 ))}
               </div>
 
-              {/* Roles, Responsibilities & Leadership Experience */}
-              <div className="mt-8 rounded-xl border border-base-border bg-base-raised p-5 md:p-6">
-                <div className="flex flex-wrap items-center justify-between gap-3 mb-2">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs uppercase tracking-wider text-accent font-display">
-                    <HiBriefcase />
-                    Leadership & Positions Held
+              {/* Club Project & Event Experiences */}
+              <div className="mt-8 pt-7 border-t border-base-border">
+                <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
+                  <div>
+                    <p className="font-display text-xs tracking-wider uppercase text-ink-faint">Club Projects & Initiatives</p>
+                    <h4 className="mt-1 font-display text-lg sm:text-xl font-bold text-ink">
+                      Project Experience & Contributions
+                    </h4>
                   </div>
-                  <span className="text-xs text-ink-faint uppercase tracking-wider">Roles & Responsibilities</span>
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs font-display text-accent">
+                    <HiBriefcase className="text-xs" />
+                    5 Key Project Roles
+                  </span>
                 </div>
 
-                <h4 className="mt-3 font-display text-xl md:text-2xl font-bold text-ink">
-                  Logistics Head / IT Crew Member / Marketing Team Member / Logistics Team Member
-                </h4>
-                <p className="mt-2 text-sm leading-relaxed text-ink-muted max-w-3xl">
-                  Served as Logistics Head of IEEEXTREME 20.0 IEEE, IT Crew Member of CINERO26 in J&apos;Pura Voice, Marketing Team Member of CAREER Gateway 1.0 in IEEE, Logistics Team Member of J&apos;Pura Xtreme 3.0 in IEEE, and Logistics Team Member of ARTIMIA 2.0 in IEEE, contributing to event execution, team coordination, and smooth operational support across diverse university initiatives.
-                </p>
-
-                <div className="mt-5 grid gap-3 md:grid-cols-2">
-                  {leadershipExperiencePoints.map(({ title, description }) => (
-                    <div
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
+                  {clubProjectExperiences.map(({ title, role, organization, logo, description, skills }, index) => (
+                    <motion.div
                       key={title}
-                      className="rounded-xl border border-base-border bg-base-panel p-4 text-ink-muted transition-all duration-300 hover:border-accent/40"
+                      initial={{ opacity: 0, y: 14 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.15 }}
+                      transition={{ duration: 0.35, delay: index * 0.05, ease: 'easeOut' }}
+                      className="group relative flex flex-col justify-between rounded-2xl border border-base-border bg-base-raised p-4 sm:p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40"
                     >
-                      <div className="flex items-center gap-2">
-                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-accent/10 text-accent">
-                          <HiBadgeCheck className="text-xs" />
-                        </span>
-                        <h5 className="font-display text-base font-semibold text-ink">{title}</h5>
+                      <div>
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="flex items-center gap-2 min-w-0">
+                            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-base-panel shadow-sm overflow-hidden">
+                              <img src={logo} alt={organization} className="h-full w-full object-cover" />
+                            </div>
+                            <span className="truncate text-xs font-semibold text-ink/90">{organization}</span>
+                          </div>
+                          <span className="shrink-0 rounded-full border border-accent/40 bg-accent/10 px-2.5 py-0.5 font-display text-[11px] font-medium text-accent">
+                            {role}
+                          </span>
+                        </div>
+
+                        <h5 className="mt-3 font-display text-base sm:text-lg font-bold text-ink transition-colors group-hover:text-accent">
+                          {title}
+                        </h5>
+
+                        <p className="mt-2 text-xs sm:text-sm leading-relaxed text-ink-muted">
+                          {description}
+                        </p>
                       </div>
-                      <p className="mt-2 text-sm leading-relaxed text-ink-muted">{description}</p>
-                    </div>
+
+                      <div className="mt-4 pt-3 border-t border-base-border/70 flex flex-wrap gap-1.5">
+                        {skills.map((skill) => (
+                          <span
+                            key={skill}
+                            className="rounded-md border border-base-border bg-base-panel px-2 py-0.5 text-[11px] text-ink-faint font-medium"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
