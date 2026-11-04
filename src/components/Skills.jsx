@@ -1,7 +1,39 @@
 import { motion } from 'framer-motion'
-import * as SiIcons from 'react-icons/si'
+import {
+  SiC,
+  SiCss,
+  SiGit,
+  SiHtml5,
+  SiJavascript,
+  SiMongodb,
+  SiMysql,
+  SiOpenjdk,
+  SiPhp,
+  SiPython,
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
+  SiVite,
+} from 'react-icons/si'
 import skills from '../data/skills'
 import Reveal from './Reveal'
+
+const skillIcons = {
+  SiC,
+  SiCss,
+  SiGit,
+  SiHtml5,
+  SiJavascript,
+  SiMongodb,
+  SiMysql,
+  SiOpenjdk,
+  SiPhp,
+  SiPython,
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
+  SiVite,
+}
 
 export default function Skills() {
   return (
@@ -16,7 +48,7 @@ export default function Skills() {
 
         <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-8 gap-4">
           {skills.map((item, i) => {
-            const Icon = item.icon === 'MATH' ? null : SiIcons[item.icon]
+            const Icon = item.icon === 'MATH' ? null : skillIcons[item.icon]
             return (
               <motion.div
                 key={item.name}

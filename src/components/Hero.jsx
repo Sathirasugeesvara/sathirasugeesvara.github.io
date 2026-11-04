@@ -20,7 +20,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-base via-transparent to-base/40" />
       </div>
 
-      <div className="relative section pt-32 pb-24 md:pt-40 md:pb-32 min-h-screen flex items-center">
+      <div className="relative section pt-24 pb-28 md:pt-40 md:pb-32 min-h-screen flex items-start md:items-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -36,7 +36,7 @@ export default function Hero() {
             ))}
           </p>
 
-          <h1 className="mt-5 font-display font-bold leading-[0.95] text-5xl sm:text-6xl lg:text-7xl">
+          <h1 className="mt-5 font-display font-bold leading-[0.95] text-[clamp(2.25rem,12vw,3rem)] sm:text-6xl lg:text-7xl">
             <span className="block text-ink">{profile.firstName.toUpperCase()}</span>
             <span className="block text-ink-muted">{profile.lastName.toUpperCase()}</span>
           </h1>

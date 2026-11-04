@@ -41,22 +41,22 @@ const leadershipOrganizations = [
   {
     organization: 'Rotaract Club',
     institution: 'University of Sri Jayewardenepura',
-    logo: '/images/Society logos/Rotaractlogo.png',
+    logo: '/images/Society logos/Rotaractlogo.webp',
   },
   {
     organization: 'IEEE Student Branch',
     institution: 'University of Sri Jayewardenepura',
-    logo: '/images/Society logos/IEEElogo.png',
+    logo: '/images/Society logos/IEEElogo.webp',
   },
   {
     organization: 'Astronomy Society',
     institution: 'University of Sri Jayewardenepura',
-    logo: '/images/Society logos/Astronomylogo.png',
+    logo: '/images/Society logos/Astronomylogo.webp',
   },
   {
     organization: "J'Pura Voice",
     institution: 'University of Sri Jayewardenepura',
-    logo: '/images/Society logos/Japuravoivelogo.png',
+    logo: '/images/Society logos/Japuravoivelogo.webp',
   },
 ]
 
@@ -65,7 +65,7 @@ const clubProjectExperiences = [
     title: 'IEEEXTREME 20.0',
     role: 'Logistics Head',
     organization: 'IEEE Student Branch',
-    logo: '/images/Society logos/IEEElogo.png',
+    logo: '/images/Society logos/IEEElogo.webp',
     description:
       'Spearheaded overall logistics operations for the 24-hour global competitive programming hackathon at USJ, directing venue readiness, lab setups, hardware power allocation, and team scheduling.',
     skills: ['Logistics Management', 'Team Leadership', 'Hackathon Operations'],
@@ -74,7 +74,7 @@ const clubProjectExperiences = [
     title: 'CINERO’26',
     role: 'IT Crew Head',
     organization: "J'Pura Voice",
-    logo: '/images/Society logos/Japuravoivelogo.png',
+    logo: '/images/Society logos/Japuravoivelogo.webp',
     description:
       'Engineered the official competition web platform, digital entry forms, and media workflow systems, providing reliable live tech support throughout the national short film competition.',
     skills: ['Web Platform', 'IT Support', 'Digital Operations'],
@@ -83,7 +83,7 @@ const clubProjectExperiences = [
     title: 'CAREER Gateway 1.0',
     role: 'Marketing Team Member',
     organization: 'IEEE Student Branch',
-    logo: '/images/Society logos/IEEElogo.png',
+    logo: '/images/Society logos/IEEElogo.webp',
     description:
       'Drove marketing and promotional outreach for the flagship career development event, coordinating cross-platform content campaigns, student communications, and registration flow.',
     skills: ['Campaign Marketing', 'Outreach', 'Content Strategy'],
@@ -92,7 +92,7 @@ const clubProjectExperiences = [
     title: "J'Pura Xtreme 3.0",
     role: 'Logistics Team Member',
     organization: 'IEEE Student Branch',
-    logo: '/images/Society logos/IEEElogo.png',
+    logo: '/images/Society logos/IEEElogo.webp',
     description:
       'Managed on-ground logistics workflows, inventory prep, participant coordination, and event-day operational assistance for the intra-university coding contest.',
     skills: ['Event Logistics', 'Resource Coordination', 'On-Ground Support'],
@@ -101,7 +101,7 @@ const clubProjectExperiences = [
     title: 'ARTIMIA 2.0',
     role: 'Logistics Team Member',
     organization: 'IEEE Student Branch',
-    logo: '/images/Society logos/IEEElogo.png',
+    logo: '/images/Society logos/IEEElogo.webp',
     description:
       'Coordinated stage, backstage, and guest area logistical requirements, handling supplies, material distribution, and operational preparedness across the showcase.',
     skills: ['Operational Logistics', 'Team Coordination', 'Stage Support'],
@@ -430,13 +430,13 @@ export default function Journey() {
                   >
                     {/* Subtle watermark background logo */}
                     <div className="pointer-events-none absolute -right-4 -bottom-4 h-24 w-24 opacity-15 transition-all duration-300 group-hover:opacity-25 group-hover:scale-110">
-                      <img src={logo} alt="" className="h-full w-full rounded-full object-cover" />
+                      <img src={logo} alt="" loading="lazy" decoding="async" className="h-full w-full rounded-full object-cover" />
                     </div>
 
                     {/* Round logo */}
                     <div className="relative z-10 flex items-center">
                       <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-base-panel shadow-md transition-all duration-300 group-hover:scale-105 group-hover:border-accent/60 overflow-hidden">
-                        <img src={logo} alt={organization} className="h-full w-full object-cover" />
+                        <img src={logo} alt={organization} loading="lazy" decoding="async" className="h-full w-full object-cover" />
                       </div>
                     </div>
 
@@ -478,7 +478,7 @@ export default function Journey() {
                         <div className="flex items-center justify-between gap-2">
                           <div className="flex items-center gap-2 min-w-0">
                             <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-base-panel shadow-sm overflow-hidden">
-                              <img src={logo} alt={organization} className="h-full w-full object-cover" />
+                              <img src={logo} alt={organization} loading="lazy" decoding="async" className="h-full w-full object-cover" />
                             </div>
                             <span className="truncate text-xs font-semibold text-ink/90">{organization}</span>
                           </div>

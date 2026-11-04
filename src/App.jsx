@@ -17,7 +17,7 @@ export default function App() {
       <CursorGhost />
       <Navbar />
       <SectionIndex />
-      <main className="pb-28 md:pb-0">
+      <main>
         <Hero />
         <Projects />
         <About />

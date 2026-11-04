@@ -15,7 +15,7 @@ const profile = {
   availability: 'Open to opportunities',
   email: 'sathirasugeesvara@gmail.com',
   resumeUrl: '/sathira_cv.pdf',
-  photo: '/images/Photo1.jpg',
+  photo: '/images/about-photo.webp',
   heroBanner: '/images/hero-banner.webp',
   heroBannerMobile: '/images/hero-banner-mobile.webp',
   socials: {

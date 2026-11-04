@@ -4,7 +4,7 @@ const skills = [
   { name: 'TypeScript', icon: 'SiTypescript', color: '#3178C6' },
   { name: 'React', icon: 'SiReact', color: '#61DAFB' },
   { name: 'HTML5', icon: 'SiHtml5', color: '#E34F26' },
-  { name: 'CSS3', icon: 'SiCss3', color: '#2965F1' },
+  { name: 'CSS3', icon: 'SiCss', color: '#2965F1' },
   { name: 'Python', icon: 'SiPython', color: '#3776AB' },
   { name: 'Java', icon: 'SiOpenjdk', color: '#EA2D2E' },
   { name: 'C', icon: 'SiC', color: '#A8B9CC' },

@@ -15,7 +15,7 @@ const links = [
   { href: '#projects', label: 'Projects', id: 'projects', icon: HiCollection },
   { href: '#about', label: 'About', id: 'about', icon: HiBriefcase },
   { href: '#skills', label: 'Skills', id: 'skills', icon: HiAcademicCap },
-  { href: '#journey', label: 'Experience', id: 'journey', icon: HiAcademicCap },
+  { href: '#journey', label: 'Experience', mobileLabel: 'Exp', id: 'journey', icon: HiAcademicCap },
   { href: '#contact', label: 'Contact', id: 'contact', icon: HiMail },
 ]
 
@@ -198,7 +198,7 @@ export default function Navbar() {
               <span className={`flex h-7 w-7 items-center justify-center rounded-xl ${isActive ? 'bg-[#0b1f22] text-white' : 'bg-white/5 text-[#dfeaf2]'}`}>
                 <Icon size={15} />
               </span>
-              <span className={`leading-none ${isActive ? 'font-semibold' : 'font-medium'}`}>{link.label}</span>
+              <span className={`leading-none ${isActive ? 'font-semibold' : 'font-medium'}`}>{link.mobileLabel || link.label}</span>
             </a>
           )
         })}

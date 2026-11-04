@@ -42,7 +42,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 md:py-28 border-t border-base-border">
+    <section id="contact" className="pt-20 pb-10 md:py-28 border-t border-base-border">
       <div className="section grid md:grid-cols-2 gap-12">
         <Reveal>
           <div>

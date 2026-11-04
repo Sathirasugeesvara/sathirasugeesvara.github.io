@@ -5,7 +5,7 @@ import profile from '../data/profile'
 export default function Footer() {
   const year = new Date().getFullYear()
   return (
-    <footer className="border-t border-base-border py-10 pb-24 md:pb-10">
+    <footer className="border-t border-base-border pt-6 pb-24 md:py-10">
       <div className="section flex flex-col md:flex-row items-center md:items-start justify-between gap-8 text-center md:text-left">
         {/* logo + name + tagline */}
         <div className="flex items-center gap-4">
@@ -19,7 +19,7 @@ export default function Footer() {
         </div>
 
         {/* social icons */}
-        <div className="flex items-center gap-5 text-ink-muted text-lg">
+        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-3 text-ink-muted text-lg">
           <a href={profile.socials.github} target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors"><FaGithub /></a>
           <a href={profile.socials.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors"><FaLinkedin /></a>
           <a href={profile.socials.whatsapp} target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors"><FaWhatsapp /></a>
