@@ -1,11 +1,14 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { motion, useReducedMotion } from 'framer-motion'
 import {
   HiAcademicCap,
   HiBriefcase,
+  HiCode,
   HiCollection,
   HiHome,
   HiMail,
   HiMenu,
+  HiUser,
   HiX,
 } from 'react-icons/hi'
 import profile from '../data/profile'
@@ -13,9 +16,9 @@ import profile from '../data/profile'
 const links = [
   { href: '#home', label: 'Home', id: 'home', icon: HiHome },
   { href: '#projects', label: 'Projects', id: 'projects', icon: HiCollection },
-  { href: '#about', label: 'About', id: 'about', icon: HiBriefcase },
-  { href: '#skills', label: 'Skills', id: 'skills', icon: HiAcademicCap },
-  { href: '#journey', label: 'Experience', mobileLabel: 'Exp', id: 'journey', icon: HiAcademicCap },
+  { href: '#about', label: 'About', id: 'about', icon: HiUser },
+  { href: '#skills', label: 'Skills', id: 'skills', icon: HiCode },
+  { href: '#journey', label: 'Experience', mobileLabel: 'Exp', id: 'journey', icon: HiBriefcase },
   { href: '#contact', label: 'Contact', id: 'contact', icon: HiMail },
 ]
 
@@ -23,6 +26,9 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [active, setActive] = useState('home')
+  const [bounce, setBounce] = useState({ id: null, sequence: 0 })
+  const shouldReduceMotion = useReducedMotion()
+  const pendingMobileSection = useRef(null)
 
   // Detect scrolling
   useEffect(() => {
@@ -59,15 +65,31 @@ export default function Navbar() {
         }
       })
 
+      if (pendingMobileSection.current && pendingMobileSection.current !== current) return
+      pendingMobileSection.current = null
       setActive(current)
     }
 
+    let scrollEndTimeout
+    const onScroll = () => {
+      updateActiveSection()
+      window.clearTimeout(scrollEndTimeout)
+
+      if (pendingMobileSection.current) {
+        scrollEndTimeout = window.setTimeout(() => {
+          pendingMobileSection.current = null
+          updateActiveSection()
+        }, 180)
+      }
+    }
+
     updateActiveSection()
-    window.addEventListener('scroll', updateActiveSection, { passive: true })
+    window.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('resize', updateActiveSection)
 
     return () => {
-      window.removeEventListener('scroll', updateActiveSection)
+      window.clearTimeout(scrollEndTimeout)
+      window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', updateActiveSection)
     }
   }, [])
@@ -95,6 +117,15 @@ export default function Navbar() {
   }, [open])
 
   const closeMenu = () => setOpen(false)
+  const selectMobileLink = (id) => {
+    pendingMobileSection.current = active === id ? null : id
+    setActive(id)
+    closeMenu()
+
+    if (!shouldReduceMotion) {
+      setBounce((current) => ({ id, sequence: current.sequence + 1 }))
+    }
+  }
 
   return (
     <>
@@ -175,30 +206,75 @@ export default function Navbar() {
 
       <nav
         aria-label="Mobile quick navigation"
-        className="fixed inset-x-3 bottom-3 z-40 grid grid-cols-6 gap-1 rounded-[26px] border border-[#2a3c4c] bg-[#0a1219]/90 p-2 shadow-[0_12px_40px_rgba(0,0,0,0.35)] backdrop-blur-2xl md:hidden"
+        className="mobile-quick-nav md:hidden"
       >
         {links.map((link) => {
           const Icon = link.icon
           const isActive = active === link.id
+          const isBouncing = bounce.id === link.id
 
           return (
             <a
               key={link.id}
               href={link.href}
-              onClick={() => {
-                setActive(link.id)
-                closeMenu()
-              }}
-              className={`flex flex-col items-center justify-center gap-1 rounded-[18px] px-1 py-2 text-[10px] font-medium transition-all duration-300 ${
-                isActive
-                  ? 'bg-[#2ecfcf] text-[#051a1d] shadow-[0_0_18px_rgba(46,207,207,0.28)]'
-                  : 'text-[#dfeaf2] hover:bg-white/5'
-              }`}
+              onClick={() => selectMobileLink(link.id)}
+              aria-current={isActive ? 'location' : undefined}
+              className={`mobile-quick-nav__item${isActive ? ' mobile-quick-nav__item--active' : ''}`}
             >
-              <span className={`flex h-7 w-7 items-center justify-center rounded-xl ${isActive ? 'bg-[#0b1f22] text-white' : 'bg-white/5 text-[#dfeaf2]'}`}>
-                <Icon size={15} />
+              <span className="mobile-quick-nav__icon-wrap">
+                {isBouncing && (
+                  <motion.span
+                    key={`ripple-${bounce.sequence}`}
+                    aria-hidden="true"
+                    className="mobile-quick-nav__ripple"
+                    initial={{ scale: 0.7, opacity: 0.32 }}
+                    animate={{ scale: [0.7, 1.15, 1.7], opacity: [0.32, 0.2, 0] }}
+                    transition={{ duration: 0.72, times: [0, 0.38, 1], ease: 'easeOut' }}
+                  />
+                )}
+                <motion.span
+                  key={isBouncing ? `${link.id}-${bounce.sequence}` : `${link.id}-idle`}
+                  className="mobile-quick-nav__icon"
+                  initial={{ y: 0, rotate: 0, scaleX: 1, scaleY: 1 }}
+                  animate={isBouncing ? {
+                    y: [0, -8, -60, -82, -52, -8, 0, -8, 0],
+                    rotate: [0, -10, 7, 12, -6, 0, 3, -2, 0],
+                    scaleX: [1, 0.92, 1.02, 1.06, 1.02, 1, 1.22, 0.92, 1],
+                    scaleY: [1, 1.08, 0.98, 0.94, 0.98, 1.04, 0.72, 1.08, 1],
+                  } : {
+                    y: 0,
+                    rotate: 0,
+                    scaleX: 1,
+                    scaleY: 1,
+                  }}
+                  transition={isBouncing ? {
+                    duration: 1.02,
+                    times: [0, 0.08, 0.23, 0.38, 0.54, 0.7, 0.77, 0.9, 1],
+                    ease: ['easeOut', 'easeOut', 'easeOut', 'easeIn', 'easeIn', 'easeOut', 'easeOut', 'easeOut'],
+                  } : { duration: 0 }}
+                  onAnimationComplete={() => {
+                    if (isBouncing) {
+                      setBounce((current) => (
+                        current.sequence === bounce.sequence
+                          ? { ...current, id: null }
+                          : current
+                      ))
+                    }
+                  }}
+                >
+                  <Icon size={19} />
+                </motion.span>
               </span>
-              <span className={`leading-none ${isActive ? 'font-semibold' : 'font-medium'}`}>{link.mobileLabel || link.label}</span>
+              <span className="mobile-quick-nav__label">{link.mobileLabel || link.label}</span>
+              <span className="mobile-quick-nav__indicator-slot" aria-hidden="true">
+                {isActive && (
+                  <motion.span
+                    className="mobile-quick-nav__indicator"
+                    layoutId="mobile-quick-nav-active-indicator"
+                    transition={{ type: 'spring', stiffness: 500, damping: 32 }}
+                  />
+                )}
+              </span>
             </a>
           )
         })}

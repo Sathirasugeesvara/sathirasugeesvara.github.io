@@ -5,7 +5,7 @@ import profile from '../data/profile'
 export default function Footer() {
   const year = new Date().getFullYear()
   return (
-    <footer className="border-t border-base-border pt-6 pb-24 md:py-10">
+    <footer className="mobile-nav-clearance border-t border-base-border pt-6 pb-24 md:py-10">
       <div className="section flex flex-col md:flex-row items-center md:items-start justify-between gap-8 text-center md:text-left">
         {/* logo + name + tagline */}
         <div className="flex items-center gap-4">
