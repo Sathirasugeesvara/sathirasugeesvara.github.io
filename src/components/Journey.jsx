@@ -58,6 +58,11 @@ const leadershipOrganizations = [
     institution: 'University of Sri Jayewardenepura',
     logo: '/images/Society logos/Japuravoivelogo.webp',
   },
+  {
+    organization: 'Leo Club',
+    institution: 'University of Sri Jayewardenepura',
+    logo: '/images/Society logos/leo.webp',
+  },
 ]
 
 const clubProjectExperiences = [
@@ -78,6 +83,15 @@ const clubProjectExperiences = [
     description:
       'Engineered the official competition web platform, digital entry forms, and media workflow systems, providing reliable live tech support throughout the national short film competition.',
     skills: ['Web Platform', 'IT Support', 'Digital Operations'],
+  },
+  {
+    title: 'Anduren Epita',
+    role: 'Technical Crew Head',
+    organization: 'Leo Club of USJ',
+    logo: '/images/Society logos/leo.webp',
+    description:
+      'Led the technical work to launch and maintain a website promoting drug prevention awareness, helping make important information accessible to the community.',
+    skills: ['Website Development', 'Technical Leadership', 'Public Awareness'],
   },
   {
     title: 'CAREER Gateway 1.0',
