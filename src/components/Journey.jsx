@@ -39,11 +39,6 @@ const starhubHighlights = [
 
 const leadershipOrganizations = [
   {
-    organization: 'Rotaract Club',
-    institution: 'University of Sri Jayewardenepura',
-    logo: '/images/Society logos/Rotaractlogo.webp',
-  },
-  {
     organization: 'IEEE Student Branch',
     institution: 'University of Sri Jayewardenepura',
     logo: '/images/Society logos/IEEElogo.webp',
@@ -63,17 +58,22 @@ const leadershipOrganizations = [
     institution: 'University of Sri Jayewardenepura',
     logo: '/images/Society logos/leo.webp',
   },
+  {
+    organization: 'Rotaract Club',
+    institution: 'University of Sri Jayewardenepura',
+    logo: '/images/Society logos/Rotaractlogo.webp',
+  },
 ]
 
 const clubProjectExperiences = [
   {
-    title: 'IEEEXTREME 20.0',
-    role: 'Logistics Head',
-    organization: 'IEEE Student Branch',
-    logo: '/images/Society logos/IEEElogo.webp',
+    title: 'Organizing Planet',
+    role: 'Manager',
+    organization: 'Astronomy Society',
+    logo: '/images/Society logos/Astronomylogo.webp',
     description:
-      'Spearheaded overall logistics operations for the 24-hour global competitive programming hackathon at USJ, directing venue readiness, lab setups, hardware power allocation, and team scheduling.',
-    skills: ['Logistics Management', 'Team Leadership', 'Hackathon Operations'],
+      'Managed the organizing team and coordinated event operations for Organizing Planet, supporting planning and execution across the initiative.',
+    skills: ['Event Management', 'Team Coordination', 'Operational Planning'],
   },
   {
     title: 'CINERO’26',
@@ -94,6 +94,15 @@ const clubProjectExperiences = [
     skills: ['Website Development', 'Technical Leadership', 'Public Awareness'],
   },
   {
+    title: 'IEEEXTREME 20.0',
+    role: 'Logistics Head',
+    organization: 'IEEE Student Branch',
+    logo: '/images/Society logos/IEEElogo.webp',
+    description:
+      'Spearheaded overall logistics operations for the 24-hour global competitive programming hackathon at USJ, directing venue readiness, lab setups, hardware power allocation, and team scheduling.',
+    skills: ['Logistics Management', 'Team Leadership', 'Hackathon Operations'],
+  },
+  {
     title: 'CAREER Gateway 1.0',
     role: 'Marketing Team Member',
     organization: 'IEEE Student Branch',
@@ -101,6 +110,15 @@ const clubProjectExperiences = [
     description:
       'Drove marketing and promotional outreach for the flagship career development event, coordinating cross-platform content campaigns, student communications, and registration flow.',
     skills: ['Campaign Marketing', 'Outreach', 'Content Strategy'],
+  },
+  {
+    title: 'Esperança',
+    role: 'PR Committee Member',
+    organization: 'Rotaract Club',
+    logo: '/images/Society logos/Rotaractlogo.webp',
+    description:
+      'Contributed to public relations and promotional activities for Esperança, supporting outreach, communication, and project visibility.',
+    skills: ['Public Relations', 'Promotional Outreach', 'Committee Coordination'],
   },
   {
     title: "J'Pura Xtreme 3.0",
@@ -474,7 +492,7 @@ export default function Journey() {
                   </div>
                   <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs font-display text-accent">
                     <HiBriefcase className="text-xs" />
-                    5 Key Project Roles
+                    {clubProjectExperiences.length} Key Project Roles
                   </span>
                 </div>
 

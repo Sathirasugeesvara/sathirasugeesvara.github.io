@@ -19,6 +19,27 @@ const projects = [
     github: 'https://github.com/KubiForge/Cinero-26.git',
   },
   {
+    title: 'Beyond the Darkness',
+    category: 'Web Application',
+    description:
+      'A multilingual substance-use prevention and recovery-support platform developed for the Leo Club of the University of Sri Jayewardenepura. It features evidence-based awareness resources, a confidential AI assistant, self-assessment, and a map-based directory of Sri Lankan support services.',
+    tags: [
+      'React',
+      'TypeScript',
+      'Vite',
+      'Tailwind CSS',
+      'Grok API',
+      'Google Apps Script',
+      'Google Sheets',
+      'Leaflet',
+      'OpenStreetMap',
+      'Vercel',
+    ],
+    image: '/images/Project7.png',
+    live: 'https://andurenepita.vercel.app/',
+    github: 'https://github.com/KubiForge/adurenepita.git',
+  },
+  {
     title: 'Xaro Clothing Store',
     category: 'Web Application',
     description:
