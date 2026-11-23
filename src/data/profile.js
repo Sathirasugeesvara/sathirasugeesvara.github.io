@@ -13,6 +13,8 @@ const profile = {
     "I build web applications end to end — from data models to interfaces — and I like the parts most people skip: fixing the bug, tightening the layout, shipping the thing.",
   location: 'Matugama, Sri Lanka',
   availability: 'Open to opportunities',
+  currentlyBuilding: 'Web experiences with Kubi Forge',
+  currentlyLearning: 'Computer Science & Mathematics',
   email: 'sathirasugeesvara@gmail.com',
   resumeUrl: '/sathira_cv.pdf',
   photo: '/images/about-photo.webp',

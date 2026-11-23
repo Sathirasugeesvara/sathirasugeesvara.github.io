@@ -167,6 +167,7 @@ export const CursorGhost: React.FC = () => {
     let lastTokenSpawn = 0
     let lastPuffSpawn = 0
     let animId: number
+    let easterEggTimer: number | undefined
 
     // Helper: Spawn Smoke Puff
     function spawnPuff(x: number, y: number, vx: number, vy: number, speedBoost: number) {
@@ -330,6 +331,31 @@ export const CursorGhost: React.FC = () => {
       ghost.targetScale = 1.3
     }
 
+    const onGhostEasterEgg = () => {
+      if (!mouse.visible) {
+        mouse.visible = true
+        ghost.x = width / 2
+        ghost.y = height / 2
+      }
+
+      const x = ghost.x
+      const y = ghost.y - 8
+      spawnShockwave(x, y, 86)
+      spawnShockwave(x, y, 126, 5)
+      spawnSparks(x, y, 32, 1.7)
+      for (let i = 0; i < 5; i++) {
+        spawnPuff(x, y, (Math.random() - 0.5) * 5, (Math.random() - 0.5) * 5, 14)
+      }
+
+      ghost.spinSpeed = Math.PI * 0.2
+      ghost.bounceVy = -17
+      ghost.targetScale = 1.5
+      window.clearTimeout(easterEggTimer)
+      easterEggTimer = window.setTimeout(() => {
+        ghost.targetScale = mouse.isHovering ? 1.15 : 1
+      }, 900)
+    }
+
     // Interactive Hover Tracking
     const onPointerOver = (e: PointerEvent) => {
       const target = e.target as HTMLElement | null
@@ -358,6 +384,7 @@ export const CursorGhost: React.FC = () => {
     window.addEventListener('pointerdown', onPointerDown, { passive: true })
     window.addEventListener('pointerup', onPointerUp, { passive: true })
     window.addEventListener('dblclick', onDblClick, { passive: true })
+    window.addEventListener('ghost:easter-egg', onGhostEasterEgg)
     document.addEventListener('pointerover', onPointerOver, { passive: true })
 
     // Animation Loop
@@ -824,6 +851,8 @@ export const CursorGhost: React.FC = () => {
       window.removeEventListener('pointerdown', onPointerDown)
       window.removeEventListener('pointerup', onPointerUp)
       window.removeEventListener('dblclick', onDblClick)
+      window.removeEventListener('ghost:easter-egg', onGhostEasterEgg)
+      window.clearTimeout(easterEggTimer)
       document.removeEventListener('pointerover', onPointerOver)
     }
   }, [])

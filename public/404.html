@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#070b10" />
+    <title>404 — Sathira Sugeesvara</title>
+    <style>
+      :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: #070b10; color: #e8edf2; }
+      * { box-sizing: border-box; }
+      body { min-width: 320px; min-height: 100vh; margin: 0; background: radial-gradient(ellipse at 50% 40%, rgba(53, 199, 193, .12), transparent 44%), #070b10; }
+      main { position: relative; display: grid; min-height: 100vh; place-items: center; padding: 82px 22px 40px; }
+      .brand { position: absolute; top: 24px; left: max(22px, calc((100vw - 1200px) / 2)); display: grid; width: 48px; height: 48px; place-items: center; border: 1px solid rgba(255,255,255,.16); border-radius: 15px; color: #e8edf2; font-size: 19px; font-weight: 700; text-decoration: none; }
+      .content { width: min(100%, 740px); }
+      .eyebrow { margin: 0; color: #5fe1db; font: 12px/1.5 Consolas, monospace; letter-spacing: .14em; }
+      h1 { margin: 14px 0 0; font-size: clamp(2.5rem, 8vw, 4.5rem); line-height: 1; letter-spacing: -.055em; }
+      .description { margin: 18px 0 28px; color: #8b98a5; line-height: 1.7; }
+      .description code { color: #b6fffa; overflow-wrap: anywhere; }
+      .window { overflow: hidden; border: 1px solid rgba(95,225,219,.28); border-radius: 18px; background: #091117; box-shadow: 0 28px 90px rgba(0,0,0,.4), 0 0 40px rgba(53,199,193,.08); }
+      .window-head { display: flex; min-height: 48px; align-items: center; gap: 12px; padding: 0 16px; border-bottom: 1px solid rgba(164,194,212,.13); color: #aab8bf; font: 10px Consolas, monospace; letter-spacing: .14em; }
+      .lights { display: flex; gap: 5px; }
+      .lights i { width: 8px; height: 8px; border-radius: 50%; background: #ff6b66; }
+      .lights i:nth-child(2) { background: #f0bf58; }
+      .lights i:nth-child(3) { background: #63d69a; }
+      .ready { margin-left: auto; color: #72e3da; letter-spacing: 0; }
+      .screen { position: relative; min-height: 250px; max-height: 55vh; overflow: auto; padding: 18px 20px; font: 13px/1.7 Consolas, "SFMono-Regular", monospace; }
+      #output { display: grid; gap: 10px; }
+      .entry-command { margin: 0; color: #e8edf2; overflow-wrap: anywhere; }
+      .entry-command span, .entry-output { color: #72e3da; }
+      .entry-output { margin: 2px 0 0; overflow-wrap: anywhere; }
+      form { display: flex; align-items: center; gap: 9px; margin-top: 14px; color: #70e8df; }
+      label { white-space: nowrap; }
+      input { width: 100%; min-width: 0; border: 0; outline: 0; background: transparent; color: #f1fbfb; font: inherit; caret-color: #5fe1db; }
+      input:focus-visible { outline: 1px solid #35c7c1; outline-offset: 3px; border-radius: 3px; }
+      .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+      .links a { padding: 8px 13px; border: 1px solid rgba(95,225,219,.25); border-radius: 999px; color: #a9e9e5; font-size: 12px; text-decoration: none; }
+      .links a:hover { border-color: rgba(95,225,219,.7); background: rgba(53,199,193,.1); }
+      .ghost { position: absolute; top: 20px; right: 24px; width: 42px; opacity: 0; filter: drop-shadow(0 0 12px rgba(95,225,219,.85)); pointer-events: none; }
+      .ghost--celebrate { animation: ghost-pop 1.15s ease-out both; }
+      @keyframes ghost-pop {
+        0% { opacity: 0; transform: translateY(28px) scale(.35) rotate(-18deg); }
+        30% { opacity: 1; transform: translateY(-18px) scale(1.16) rotate(12deg); }
+        60% { transform: translateY(0) scale(.92) rotate(-5deg); }
+        100% { opacity: 0; transform: translateY(-34px) scale(.5) rotate(8deg); }
+      }
+      @media (max-width: 500px) {
+        main { padding-inline: 16px; }
+        .screen { padding: 16px; font-size: 12px; }
+        .ghost { right: 16px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .001ms !important; animation-iteration-count: 1 !important; }
+        .ghost--celebrate { opacity: 1; transform: none; animation: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="brand" href="/" aria-label="Return to portfolio home">SS</a>
+      <div class="content">
+        <p class="eyebrow">404 / ROUTE NOT FOUND</p>
+        <h1>This page wandered off.</h1>
+        <p class="description">Nothing lives at <code id="requested-path"></code>. Try a terminal command or use a shortcut below.</p>
+
+        <section class="window" aria-label="Portfolio terminal">
+          <header class="window-head">
+            <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+            SATHIRA.TERMINAL
+            <span class="ready">READY</span>
+          </header>
+          <div class="screen">
+            <div id="output" role="log" aria-live="polite">
+              <p class="entry-output">Welcome to SathiraOS. Type "help" to see available commands.</p>
+            </div>
+            <svg class="ghost" id="ghost" viewBox="0 0 52 60" aria-hidden="true">
+              <path d="M26 3C13 3 6 13 6 27v25c4-5 8-5 12 0s8 5 12 0 8-5 12 0V27C42 13 35 3 26 3Z" fill="#EDFFFF" stroke="#75F3EB" stroke-width="2" />
+              <ellipse cx="20" cy="27" rx="2" ry="3" fill="#10232B" />
+              <ellipse cx="32" cy="27" rx="2" ry="3" fill="#10232B" />
+              <path d="M22 35c2 3 6 3 8 0" stroke="#365860" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+            <form id="command-form">
+              <label for="command">guest@sathira:~$</label>
+              <input id="command" name="command" autocomplete="off" spellcheck="false" aria-label="Enter a portfolio command" />
+            </form>
+          </div>
+        </section>
+
+        <nav class="links" aria-label="Suggested pages">
+          <a href="/#home">Home</a>
+          <a href="/#projects">Projects</a>
+          <a href="/#contact">Contact</a>
+        </nav>
+      </div>
+    </main>
+    <script>
+      const requestedPath = document.getElementById('requested-path')
+      const output = document.getElementById('output')
+      const form = document.getElementById('command-form')
+      const input = document.getElementById('command')
+      const ghost = document.getElementById('ghost')
+      const targets = {
+        home: '/#home',
+        about: '/#about',
+        projects: '/#projects',
+        skills: '/#skills',
+        contact: '/#contact',
+      }
+
+      requestedPath.textContent = window.location.pathname
+
+      function printEntry(command, message) {
+        const entry = document.createElement('div')
+        if (command) {
+          const prompt = document.createElement('p')
+          prompt.className = 'entry-command'
+          const label = document.createElement('span')
+          label.textContent = 'guest@sathira:~$ '
+          prompt.append(label, document.createTextNode(command))
+          entry.append(prompt)
+        }
+        if (message) {
+          const response = document.createElement('p')
+          response.className = 'entry-output'
+          response.textContent = message
+          entry.append(response)
+        }
+        output.append(entry)
+        document.querySelector('.screen').scrollTop = output.scrollHeight
+      }
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault()
+        const command = input.value.trim().toLowerCase()
+        if (!command) return
+        input.value = ''
+
+        if (command === 'clear') {
+          output.replaceChildren()
+          return
+        }
+        if (command === 'help') {
+          printEntry(command, 'Commands: help, home, about, projects, skills, contact, cv, clear')
+          return
+        }
+        if (command === 'whoami') {
+          printEntry(command, 'Sathira Sugeesvara — Computer Science & Mathematics student, Full-Stack Developer.')
+          return
+        }
+        if (command === 'ghost') {
+          printEntry(command, 'A little magic, just for you.')
+          ghost.classList.remove('ghost--celebrate')
+          void ghost.getBoundingClientRect()
+          ghost.classList.add('ghost--celebrate')
+          window.setTimeout(() => ghost.classList.remove('ghost--celebrate'), 1200)
+          return
+        }
+        if (command === 'cv' || command === 'resume') {
+          printEntry(command, 'Preparing the resume download...')
+          const link = document.createElement('a')
+          link.href = '/sathira_cv.pdf'
+          link.download = 'sathira_cv.pdf'
+          link.click()
+          return
+        }
+        if (targets[command]) {
+          printEntry(command, `Opening ${command}...`)
+          window.location.href = targets[command]
+          return
+        }
+        printEntry(command, `Command not found: ${command}. Try "help".`)
+      })
+    </script>
+  </body>
+</html>
